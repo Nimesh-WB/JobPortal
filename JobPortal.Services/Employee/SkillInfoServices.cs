@@ -36,6 +36,8 @@ namespace JobPortal.Services.Employee
                     UserId = createSkillInfoDto.UserId,
                     SkillId = createSkillInfoDto.SkillId,
                     SkillExperience = createSkillInfoDto.SkillExperience,
+                    CreatedBy = createSkillInfoDto.CreatedBy,
+                    UpdatedBy = createSkillInfoDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -148,6 +150,7 @@ namespace JobPortal.Services.Employee
                 oldSkillInfo.UserId = updateSkillInfoDto.UserId;
                 oldSkillInfo.SkillId = updateSkillInfoDto.SkillId;
                 oldSkillInfo.SkillExperience = updateSkillInfoDto.SkillExperience;
+                oldSkillInfo.UpdatedBy = updateSkillInfoDto.UpdatedBy;
                 oldSkillInfo.UpdatedAt = DateTime.Now;
 
                 await _skillInfoRepository.UpdateAsync(oldSkillInfo);

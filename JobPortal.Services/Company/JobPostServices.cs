@@ -63,7 +63,7 @@ namespace JobPortal.Services.Company
             {
                 var jobPost = await _jobPostRepository.CreateAsync(new JobPost()
                 {
-                    CompanyId = jobPostDto.CompanyId,
+                    CompanyInfoId = jobPostDto.CompanyInfoId,
                     RecruiterId = jobPostDto.RecruiterId,
                     DesignationId = jobPostDto.DesignationId,
                     SkillId = jobPostDto.SkillId,
@@ -86,7 +86,7 @@ namespace JobPortal.Services.Company
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
-                var companyInfo = await _companyInfoRepository.GetAsync(jobPost.CompanyId);
+                var companyInfo = await _companyInfoRepository.GetAsync(jobPost.CompanyInfoId);
                 var recruiterInfo = await _recruiterRepository.GetAsync(jobPost.RecruiterId);
                 var designationInfo = await _designationRepository.GetAsync(jobPost.DesignationId);
                 var skillInfo = await _skillRepository.GetAsync(jobPost.SkillId);
@@ -258,7 +258,7 @@ namespace JobPortal.Services.Company
                     throw new Exception($"Job Post not found for id : {id}");
                 }
 
-                oldJobPostInfo.CompanyId = jobPostDto.CompanyId;
+                oldJobPostInfo.CompanyInfoId = jobPostDto.CompanyInfoId;
                 oldJobPostInfo.RecruiterId = jobPostDto.RecruiterId;
                 oldJobPostInfo.DesignationId = jobPostDto.DesignationId;
                 oldJobPostInfo.SkillId = jobPostDto.SkillId;
@@ -281,7 +281,7 @@ namespace JobPortal.Services.Company
 
                 await _jobPostRepository.UpdateAsync(oldJobPostInfo);
 
-                var companyInfo = await _companyInfoRepository.GetAsync(jobPostDto.CompanyId);
+                var companyInfo = await _companyInfoRepository.GetAsync(jobPostDto.CompanyInfoId);
                 var recruiterInfo = await _recruiterRepository.GetAsync(jobPostDto.RecruiterId);
                 var designationInfo = await _designationRepository.GetAsync(jobPostDto.DesignationId);
                 var skillInfo = await _skillRepository.GetAsync(jobPostDto.SkillId);

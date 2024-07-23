@@ -28,6 +28,8 @@ namespace JobPortal.Services
                     Email = userDto.Email,
                     Password = userDto.Password,
                     Contact = userDto.Contact,
+                    CreatedBy = userDto.CreatedBy,
+                    UpdatedBy = userDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -117,6 +119,8 @@ namespace JobPortal.Services
                 oldUser.Password = UserDto.Password;
                 oldUser.Contact = UserDto.Contact;
                 oldUser.IsActive = UserDto.IsActive;
+                oldUser.UpdatedBy = UserDto.UpdatedBy;
+                oldUser.UpdatedAt = DateTime.Now;
 
                 await _userRepository.UpdateAsync(oldUser);
 

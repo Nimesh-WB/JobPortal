@@ -41,6 +41,8 @@ namespace JobPortal.Services.Employee
                     ExpiryDate = createCertificationInfoDto.ExpiryDate,
                     SkillAcquired = createCertificationInfoDto.SkillAcquired,
                     CertificateURL = createCertificationInfoDto.CertificateURL,
+                    CreatedBy = createCertificationInfoDto.CreatedBy,
+                    UpdatedBy = createCertificationInfoDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -49,7 +51,6 @@ namespace JobPortal.Services.Employee
 
                 if (user != null)
                 {
-
                     var createdCertificationInfo = new GetCertificationInfoDto(
                         certificationInfo.Id,
                         user.Email,
@@ -172,6 +173,7 @@ namespace JobPortal.Services.Employee
                 oldCertificationInfo.ExpiryDate = updateCertificationInfoDto.ExpiryDate;
                 oldCertificationInfo.SkillAcquired = updateCertificationInfoDto.SkillAcquired;
                 oldCertificationInfo.CertificateURL = updateCertificationInfoDto.CertificateURL;
+                oldCertificationInfo.UpdatedBy = updateCertificationInfoDto.UpdatedBy;
                 oldCertificationInfo.UpdatedAt = DateTime.Now;
 
                 await _certificationInfoRepository.UpdateAsync(oldCertificationInfo);

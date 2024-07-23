@@ -36,6 +36,8 @@ namespace JobPortal.Services.Employee
                     ProfilePic = createPersonalInfoDto.ProfilePic,
                     FirstName = createPersonalInfoDto.FirstName,
                     LastName = createPersonalInfoDto.LastName,
+                    CreatedBy = createPersonalInfoDto.CreatedBy,
+                    UpdatedBy = createPersonalInfoDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -178,6 +180,7 @@ namespace JobPortal.Services.Employee
                 oldPersonalInfo.ProfilePic = updatePersonalInfoDto.ProfilePic;
                 oldPersonalInfo.FirstName = updatePersonalInfoDto.FirstName;
                 oldPersonalInfo.LastName = updatePersonalInfoDto.LastName;
+                oldPersonalInfo.UpdatedBy = updatePersonalInfoDto.UpdatedBy;
                 oldPersonalInfo.UpdatedAt = DateTime.Now;
 
                 await _personalInfoRepository.UpdateAsync(oldPersonalInfo);

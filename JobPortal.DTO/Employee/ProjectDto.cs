@@ -11,12 +11,13 @@ namespace JobPortal.DTO.Employee
     {
         public record CreateProjectDto(
             [Required(ErrorMessage = "User Id is Required")] long UserId,
-            [Required(ErrorMessage = "Project Title is required")] string ProjectTitle,
-            [Required(ErrorMessage = "Project Description is required")] string ProjectDescription,
-            [Required(ErrorMessage = "Skills is required")] string Skills,
+            [Required(ErrorMessage = "Project Title is required"), MaxLength(50)] string ProjectTitle,
+            string ProjectDescription,
+            [Required(ErrorMessage = "Skill is required")] string Skills,
             DateTime ExpiryDate,
             string Contributor,
-            string ProjectUrl
+            string ProjectUrl,
+            long CreatedBy
         );
 
         public record GetProjectDto(
@@ -31,14 +32,14 @@ namespace JobPortal.DTO.Employee
         );
 
         public record UpdateProjectDto(
-            long Id,
             long UserId,
-            string ProjectTitle,
+            [MaxLength(50)] string ProjectTitle,
             string ProjectDescription,
             string Skills,
             DateTime ExpiryDate,
             string Contributor,
-            string ProjectUrl
+            string ProjectUrl,
+            long UpdatedBy
         );
     }
 }

@@ -12,17 +12,20 @@ namespace JobPortal.Data
     }
 
     public record CreateDesignationDto(
-        [Required(ErrorMessage = "Designation Name is required")] string DesignationName,
-        DateTime CreatedAt,
-        DateTime UpdatedAt,
-        string DesignationCode = " "
+        [Required(ErrorMessage = "Designation Name is required"), MaxLength(50)] string DesignationName,
+        long CreatedBy,
+        [MaxLength(10)] string DesignationCode = ""
         );
     public record UpdateDesignationDto(
-        [Required(ErrorMessage = "Id is required")] long Id,
-        [Required(ErrorMessage = "Designation Name is required")] string DesignationName,
+        [MaxLength(50)] string DesignationName,
         bool IsActive,
-        DateTime UpdatedAt,
-        string DesignationCode = " "
+        long UpdatedBy,
+        [MaxLength(10)] string DesignationCode = ""
         );
-    public record GetDesignationDto(long Id, string DesignationName, string DesignationCode, bool IsActive);
+    public record GetDesignationDto(
+        long Id, 
+        string DesignationName, 
+        string DesignationCode, 
+        bool IsActive
+        );
 }

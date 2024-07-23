@@ -54,10 +54,6 @@ public class LanguageController : ControllerBase
         }
         catch (Exception ex)
         {
-            if (ex.Message == "This input already exists.")
-            {
-                return Conflict(ex.Message);
-            }
             return StatusCode(500, ex.Message);
         }
     }
@@ -73,10 +69,6 @@ public class LanguageController : ControllerBase
         }
         catch (Exception ex)
         {
-            if (ex.Message == "This input already exists.")
-            {
-                return Conflict(ex.Message);
-            }
             return StatusCode(500, ex.Message);
         }
     }

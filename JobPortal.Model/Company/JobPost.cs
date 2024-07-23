@@ -13,9 +13,9 @@ namespace JobPortal.Model.Company
     [Table("JobPosts")]
     public class JobPost : BaseEntity
     {
-        [Required(ErrorMessage = "CompanyId is required")]
+        [Required(ErrorMessage = "CompanyInfoId is required")]
         [ForeignKey("Companies")]
-        public long CompanyId { get; set; }
+        public long CompanyInfoId { get; set; }
         public virtual CompanyInfo CompanyInfo { get; set; }
 
         [Required(ErrorMessage = "RecruiterId is required")]
@@ -23,13 +23,13 @@ namespace JobPortal.Model.Company
         public long RecruiterId { get; set; }
         public virtual Recruiter Recruiter { get; set; }
 
-        [Required(ErrorMessage = "CompanyId is required")]
+        [Required(ErrorMessage = "CompanyInfoId is required")]
         [ForeignKey("Designations")]
         public long DesignationId { get; set; }
         public virtual Designation Designation { get; set; }
 
 
-        [Required(ErrorMessage = "CompanyId is required")]
+        [Required(ErrorMessage = "CompanyInfoId is required")]
         [ForeignKey("Designations")]
         public long SkillId { get; set; }
         public virtual Skill Skill { get; set; }

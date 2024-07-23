@@ -11,10 +11,13 @@ namespace JobPortal.Model
 {
     [Table("Genders")]
     [Index(nameof(GenderName), IsUnique = true)]
+    [Index(nameof(GenderCode), IsUnique = true)]
     public class Gender : BaseEntity
     {
-        [Required(ErrorMessage = "Gender Name is required")]
+        [Required(ErrorMessage = "Gender Name is required"), MaxLength(50)]
         public string GenderName { get; set; } = string.Empty;
+
+        [MaxLength(10)]
         public string GenderCode { get; set; } = string.Empty;
 
         public bool IsActive { get; set; } = true;

@@ -11,7 +11,8 @@ namespace JobPortal.DTO.Employee
     {
         public record CreateLanguageInfoDto(
             [Required(ErrorMessage = "User Id is Required")] long UserId,
-            [Required(ErrorMessage = "Language Id is Required")] long LanguageID
+            [Required(ErrorMessage = "Language Id is Required")] long LanguageID,
+            long CreatedBy
         );
 
         public record GetLanguageInfoDto(
@@ -21,9 +22,9 @@ namespace JobPortal.DTO.Employee
         );
 
         public record UpdateLanguageInfoDto(
-            long Id,
             long UserId,
-            long LanguageID
+            long LanguageID,
+            long UpdatedBy
         );
     }
 }

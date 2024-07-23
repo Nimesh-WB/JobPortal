@@ -12,16 +12,15 @@ namespace JobPortal.Model
 {
     [Table("Qualifications")]
     [Index(nameof(QualificationName), IsUnique = true)]
+    [Index(nameof(QualificationCode), IsUnique = true)]
     public class Qualification : BaseEntity
     {
-        [Required(ErrorMessage = "Qualification Name is Required")]
-        [MaxLength(50)]
+        [Required(ErrorMessage = "Qualification Name is Required"), MaxLength(50)]
         public string QualificationName { get; set; } = string.Empty;
 
-        [MaxLength(50)]
+        [MaxLength(10)]
         public string QualificationCode { get; set; } = string.Empty;
-        public bool IsActive { get; set; } = true;
 
-        /*public ICollection<JobPost> JobPosts { get; set; }*/
+        public bool IsActive { get; set; } = true;
     }
 }

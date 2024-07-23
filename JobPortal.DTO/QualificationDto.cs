@@ -12,17 +12,16 @@ namespace JobPortal.DTO
     }
 
     public record CreateQualificationDto(
-        [Required(ErrorMessage = "Qualification Name is required")] string QualificationName,
-        DateTime CreatedAt,
-        DateTime UpdatedAt,
-        string QualificationCode = ""
+        [Required(ErrorMessage = "Qualification Name is required"), MaxLength(50)] string QualificationName,
+        long CreatedBy,
+        [MaxLength(10)] string QualificationCode = ""
         );
 
     public record UpdateQualificationDto(
-        [Required(ErrorMessage = "Qualification Name is required")] string QualificationName,
+        [MaxLength(50)] string QualificationName,
         bool IsActive,
-        DateTime UpdatedAt,
-        string QualificationCode = ""
+        long UpdatedBy,
+        [MaxLength(10)] string QualificationCode = ""
         );
 
     public record GetQualificationDto(

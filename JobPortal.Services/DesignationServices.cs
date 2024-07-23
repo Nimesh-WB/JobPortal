@@ -27,7 +27,9 @@ namespace JobPortal.Services
                 var Designation = await _designationRepository.CreateAsync(new Designation()
                 {
                     DesignationName = designationDto.DesignationName,
-                    DesignationCode = designationDto.DesignationName.ToUpper().Substring(0, 3),
+                    DesignationCode = designationDto.DesignationCode,
+                    CreatedBy = designationDto.CreatedBy,
+                    UpdatedBy = designationDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -120,8 +122,9 @@ namespace JobPortal.Services
                 }
 
                 oldDesignation.DesignationName = designationDto.DesignationName;
-                oldDesignation.DesignationCode = designationDto.DesignationName.ToUpper().Substring(0, 3);
+                oldDesignation.DesignationCode = designationDto.DesignationCode;
                 oldDesignation.IsActive = designationDto.IsActive;
+                oldDesignation.UpdatedBy = designationDto.UpdatedBy;
                 oldDesignation.UpdatedAt = DateTime.Now;
 
                 await _designationRepository.UpdateAsync(oldDesignation);

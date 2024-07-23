@@ -12,15 +12,16 @@ namespace JobPortal.Model
 {
     [Table("Countries")]
     [Index(nameof(CountryName), IsUnique = true)]
+    [Index(nameof(CountryCode), IsUnique = true)]
     public class Country : BaseEntity
     {
         [Required(ErrorMessage = "Country Name is required")]
-        [StringLength(100)]
+        [StringLength(50)]
         public string CountryName { get; set; } = string.Empty;
 
+        [MaxLength(10)]
         public string CountryCode { get; set; } = string.Empty;
 
         public bool IsActive { get; set; } = true;
-        public ICollection<LocationInfo> LocationInfos { get; set; }
     }
 }

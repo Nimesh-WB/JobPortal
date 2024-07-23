@@ -26,10 +26,13 @@ namespace JobPortal.Services
                 var country = await _countryRepository.CreateAsync(new Country()
                 {
                     CountryName = countryDto.CountryName,
-                    CountryCode = countryDto.CountryName.ToUpper().Substring(0, 3),
+                    CountryCode = countryDto.CountryCode,
+                    CreatedBy = countryDto.CreatedBy,
+                    UpdatedBy = countryDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
+
                 var countryData = new GetCountryDto(country.Id, country.CountryName, country.CountryCode, country.IsActive);
                 return countryData;
             }
@@ -113,8 +116,9 @@ namespace JobPortal.Services
                 }
 
                 oldCountry.CountryName = countryDto.CountryName;
-                oldCountry.CountryCode = countryDto.CountryName.ToUpper().Substring(0, 3);
-                oldCountry.IsActive = countryDto.IsActive;
+                oldCountry.CountryCode = countryDto.CountryCode;
+                oldCountry.IsActive = countryDto.IsActive ? countryDto.IsActive : true;
+                oldCountry.UpdatedBy = countryDto.UpdatedBy;
 
                 await _countryRepository.UpdateAsync(oldCountry);
 

@@ -16,7 +16,7 @@ namespace JobPortal.Model.Company
     public class Recruiter : BaseEntity
     {
         [ForeignKey("Companies"), Required(ErrorMessage = "Company Id is required!")]
-        public long CompanyId { get; set; }
+        public long CompanyInfoId { get; set; }
         public virtual CompanyInfo CompanyInfo { get; set; } = new CompanyInfo();
         [Required(ErrorMessage = "Recruiter Name is required!")]
         [StringLength(100)]

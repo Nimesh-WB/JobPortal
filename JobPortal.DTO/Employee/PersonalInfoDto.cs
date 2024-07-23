@@ -13,8 +13,9 @@ namespace JobPortal.DTO.Employee
             [Required(ErrorMessage = "User Id is Required")] long UserId,
             [Required(ErrorMessage = "Gender Id is Required")] long GenderId,
             string ProfilePic,
-            [Required(ErrorMessage = "First Name is required")] string FirstName,
-            [Required(ErrorMessage = "Last Name is required")] string LastName
+            [Required(ErrorMessage = "First Name is required"), MaxLength(50)] string FirstName,
+            [Required(ErrorMessage = "Last Name is required"), MaxLength(50)] string LastName,
+            long CreatedBy
         );
 
         public record GetPersonalInfoDto(
@@ -27,12 +28,12 @@ namespace JobPortal.DTO.Employee
         );
 
         public record UpdatePersonalInfoDto(
-            long Id,
             long UserId,
             long GenderId,
             string ProfilePic,
-            string FirstName,
-            string LastName
+            [MaxLength(50)] string FirstName,
+            [MaxLength(50)] string LastName,
+            long UpdatedBy
         );
     }
 }

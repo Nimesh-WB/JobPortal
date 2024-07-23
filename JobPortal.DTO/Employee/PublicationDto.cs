@@ -8,25 +8,25 @@ namespace JobPortal.Data
     }
 
     public record CreatePublicationDto(
-        [Required(ErrorMessage = "Publication Title is required")] string PublicationTitle,
-        [Required(ErrorMessage = "Publisher Name is required")] string PublisherName,
+        [Required(ErrorMessage = "Publication Title is required"), MaxLength(100)] string PublicationTitle,
+        [Required(ErrorMessage = "Publisher Name is required"), MaxLength(100)] string PublisherName,
         [Required(ErrorMessage = "Publication Date is required")] DateTime PublishDate,
-        [Required(ErrorMessage = "Publication URL is required")] string PublicationURL,
-        [Required(ErrorMessage = "Description is required")] string Description,
+        string PublicationURL,
+        string Description,
         [Required(ErrorMessage = "UserId is required")] long UserId,
-        DateTime CreatedAt,
-        DateTime UpdatedAt);
+        long CreatedBy
+        );
 
     public record UpdatePublicationDto(
-        [Required(ErrorMessage = "Id is required")] long Id,
-        [Required(ErrorMessage = "Publication Title is required")] string PublicationTitle,
-        [Required(ErrorMessage = "Publisher is required")] string PublisherName,
-        [Required(ErrorMessage = "Publication Date is required")] DateTime PublishDate,
-        [Required(ErrorMessage = "Publication URL is required")] string PublicationURL,
-        [Required(ErrorMessage = "Description is required")] string Description,
-        [Required(ErrorMessage = "UserId is required")] long UserId,
+        [MaxLength(100)] string PublicationTitle,
+        [MaxLength(100)] string PublisherName,
+        DateTime PublishDate,
+        string PublicationURL,
+        string Description,
+        long UserId,
         bool IsActive,
-        DateTime UpdatedAt);
+        long UpdatedBy
+        );
 
     public record GetPublicationDto(
         long Id,
@@ -36,5 +36,6 @@ namespace JobPortal.Data
         string PublicationURL,
         string Email,
         string Description,
-        bool IsActive);
+        bool IsActive
+        );
 }

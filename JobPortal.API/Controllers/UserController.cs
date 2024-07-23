@@ -60,10 +60,6 @@ namespace JobPortal.API.Controllers
             }
             catch (Exception ex)
             {
-                if (ex.Message == "This input already exists.")
-                {
-                    return Conflict(ex.Message);
-                }
                 return StatusCode(500, ex.Message);
             }
         }
@@ -79,10 +75,6 @@ namespace JobPortal.API.Controllers
             }
             catch (Exception ex)
             {
-                if (ex.Message == "This input already exists.")
-                {
-                    return Conflict(ex.Message);
-                }
                 return NotFound(ex.Message);
             }
         }

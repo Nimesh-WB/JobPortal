@@ -13,24 +13,18 @@ namespace JobPortal.Model
 {
     [Table("Users")]
     [Index(nameof(Email), IsUnique = true)]
+    [Index(nameof(Contact), IsUnique = true)]
     public class User : BaseEntity
     {
-        [Required(ErrorMessage = "Email is required")]
-        [StringLength(100)]
+        [Required(ErrorMessage = "Email is required"), MaxLength(100)]
         public string Email { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Password is required")]
-        [StringLength(100)]
+        [Required(ErrorMessage = "Password is required"), MaxLength(50)]
         public string Password { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Contact is required")]
         public long Contact { get; set; } 
+
         public bool IsActive { get; set; } = true;
-        
-        public ICollection<SkillInfo> SkillInfos { get; set; }
-        public ICollection<LocationInfo> LocationInfos { get; set; }
-        public ICollection<Publication> Publications { get; set; }
-        public ICollection<LanguageInfo> LanguageInfos { get; set; }
-        public ICollection<CompanyInfo> CompanyInfos { get; set; }
     }
 }

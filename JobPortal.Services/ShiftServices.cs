@@ -27,6 +27,8 @@ namespace JobPortal.Services
                 {
                     ShiftName = shiftDto.ShiftName,
                     ShiftCode = shiftDto.ShiftName.ToUpper().Substring(0, 1),
+                    CreatedBy = shiftDto.CreatedBy,
+                    UpdatedBy = shiftDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -115,6 +117,8 @@ namespace JobPortal.Services
                 }
                 oldShift.ShiftName = shiftDto.ShiftName;
                 oldShift.ShiftCode = shiftDto.ShiftName.ToUpper().Substring(0, 1);
+                oldShift.UpdatedAt = DateTime.Now;
+                oldShift.UpdatedBy = shiftDto.UpdatedBy;
                 oldShift.IsActive = shiftDto.IsActive;
 
                 await _repository.UpdateAsync(oldShift);

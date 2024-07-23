@@ -27,7 +27,9 @@ namespace JobPortal.Services
                 var workType = await _workTypeRepository.CreateAsync(new WorkType()
                 {
                     WorkTypeName = createWorkTypeDto.WorkTypeName,
-                    WorkTypeCode = createWorkTypeDto.WorkTypeName.ToUpper().Substring(0, 3),
+                    WorkTypeCode = createWorkTypeDto.WorkTypeCode,
+                    CreatedBy = createWorkTypeDto.CreatedBy,
+                    UpdatedBy = createWorkTypeDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -122,6 +124,7 @@ namespace JobPortal.Services
                 oldWorkType.WorkTypeName = updateWorkTypeDto.WorkTypeName;
                 oldWorkType.WorkTypeCode = updateWorkTypeDto.WorkTypeName.ToUpper().Substring(0, 3);
                 oldWorkType.IsActive = updateWorkTypeDto.IsActive;
+                oldWorkType.UpdatedBy = updateWorkTypeDto.UpdatedBy;
                 oldWorkType.UpdatedAt = DateTime.Now;
 
                 await _workTypeRepository.UpdateAsync(oldWorkType);

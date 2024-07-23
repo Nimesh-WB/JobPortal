@@ -11,7 +11,26 @@ namespace JobPortal.Data
     {
     }
 
-    public record CreateUserDto([Required(ErrorMessage = "Email is required")] string Email, [Required(ErrorMessage = "Password is required")] string Password, [Required(ErrorMessage = "Contact is required")] long Contact, DateTime CreatedAt, DateTime UpdatedAt);
-    public record UpdateUserDto([Required(ErrorMessage = "Id is required")] long Id, [Required(ErrorMessage = "Email is required")] string Email, [Required(ErrorMessage = "Password is required")] string Password, [Required(ErrorMessage = "Contact is required")] long Contact, bool IsActive, DateTime CreatedAt, DateTime UpdatedAt);
-    public record GetUserDto(long Id, string Email, string Password, long Contact, bool IsActive);
+    public record CreateUserDto(
+        [Required(ErrorMessage = "Email is required"), MaxLength(100)] string Email, 
+        [Required(ErrorMessage = "Password is required"), MaxLength(50)] string Password, 
+        [Required(ErrorMessage = "Contact is required")] long Contact,
+        long CreatedBy
+        );
+
+    public record UpdateUserDto(
+        [MaxLength(100)] string Email, 
+        [MaxLength(50)] string Password, 
+        long Contact, 
+        bool IsActive,
+        long UpdatedBy
+        );
+
+    public record GetUserDto(
+        long Id, 
+        string Email,
+        string Password, 
+        long Contact,
+        bool IsActive
+        );
 }

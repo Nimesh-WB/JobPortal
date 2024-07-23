@@ -27,7 +27,9 @@ namespace JobPortal.Services
                 var city = await _cityRepository.CreateAsync(new City()
                 {
                     CityName = cityDto.CityName,
-                    CityCode = cityDto.CityName.ToUpper().Substring(0, 3),
+                    CityCode = cityDto.CityCode,
+                    CreatedBy = cityDto.CreatedBy,
+                    UpdatedBy = cityDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -120,8 +122,9 @@ namespace JobPortal.Services
                 }
 
                 oldCity.CityName = cityDto.CityName;
-                oldCity.CityCode = cityDto.CityName.ToUpper().Substring(0, 3);
-                oldCity.IsActive = cityDto.IsActive;
+                oldCity.CityCode = cityDto.CityCode;
+                oldCity.IsActive = cityDto.IsActive ? cityDto.IsActive : true;
+                oldCity.UpdatedBy = cityDto.UpdatedBy;
                 oldCity.UpdatedAt = DateTime.Now;
 
                 await _cityRepository.UpdateAsync(oldCity);

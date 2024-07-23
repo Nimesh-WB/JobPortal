@@ -12,13 +12,15 @@ namespace JobPortal.Model
 {
     [Table("Shifts")]
     [Index(nameof(ShiftName), IsUnique = true)]
+    [Index(nameof(ShiftCode), IsUnique = true)]
     public class Shift : BaseEntity
     {
-        [Required(ErrorMessage ="Shift Name is Required!")]
-        [StringLength(100)]
+        [Required(ErrorMessage ="Shift Name is Required!"), MaxLength(50)]
         public string ShiftName { get; set; } = string.Empty;
+
+        [MaxLength(10)]
         public string ShiftCode { get; set; } = string.Empty;
+
         public bool IsActive { get; set; } = true;
-        /*public ICollection<JobPost> JobPosts { get; set; }*/
     }
 }

@@ -12,17 +12,22 @@ namespace JobPortal.Data
     }
 
     public record CreateCityDto(
-        [Required(ErrorMessage = "City Name is required")] string CityName,
-        DateTime CreatedAt,
-        DateTime UpdatedAt,
-        string CityCode = " "
+        [Required(ErrorMessage = "City Name is required"), MaxLength(50)] string CityName,
+        long CreatedBy,
+        [MaxLength(10)] string CityCode = ""
         );
+
     public record UpdateCityDto(
-        [Required(ErrorMessage = "Id is required")] long Id,
-        [Required(ErrorMessage = "City Name is required")] string CityName,
+        [MaxLength(50)] string CityName,
+        long UpdatedBy,
         bool IsActive,
-        DateTime UpdatedAt,
-        string CityCode = " "
+        [MaxLength(10)] string CityCode = ""
         );
-    public record GetCityDto(long Id, string CityName, string CityCode, bool IsActive);
+
+    public record GetCityDto(
+        long Id, 
+        string CityName, 
+        string CityCode, 
+        bool IsActive
+        );
 }

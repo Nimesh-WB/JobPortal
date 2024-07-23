@@ -51,6 +51,8 @@ namespace JobPortal.Services.Employee
                     StartDate = createWorkExperienceInfoDto.StartDate,
                     EndDate = createWorkExperienceInfoDto.EndDate,
                     SkillsUsed = createWorkExperienceInfoDto.SkillsUsed,
+                    CreatedBy = createWorkExperienceInfoDto.CreatedBy,
+                    UpdatedBy = createWorkExperienceInfoDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -190,6 +192,7 @@ namespace JobPortal.Services.Employee
                 oldWorkExperienceInfo.StartDate = updateWorkExperienceInfoDto.StartDate;
                 oldWorkExperienceInfo.EndDate = updateWorkExperienceInfoDto.EndDate;
                 oldWorkExperienceInfo.SkillsUsed = updateWorkExperienceInfoDto.SkillsUsed;
+                oldWorkExperienceInfo.UpdatedBy = updateWorkExperienceInfoDto.UpdatedBy;
                 oldWorkExperienceInfo.UpdatedAt = DateTime.Now;
 
                 await _workExperienceInfoRepository.UpdateAsync(oldWorkExperienceInfo);

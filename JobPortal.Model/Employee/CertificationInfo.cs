@@ -15,10 +15,10 @@ namespace JobPortal.Model.Employee
         [ForeignKey("Users"), Required(ErrorMessage = "User Id is Required")]
         public long UserId { get; set; }
 
-        [Required(ErrorMessage = "Certification Name is Required")]
+        [Required(ErrorMessage = "Certification Name is Required"), MaxLength(100)]
         public string CertficateName { get; set; }
 
-        [Required(ErrorMessage = "Organisation Name is Required")]
+        [Required(ErrorMessage = "Organisation Name is Required"), MaxLength(100)]
         public string OrganisationName { get; set; }
 
         [Required(ErrorMessage = "Issue Date is Required")]

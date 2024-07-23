@@ -23,16 +23,13 @@ namespace JobPortal.Model.Employee
         [ForeignKey("Qualifications"),Required(ErrorMessage = "Qualification ID  is required")]
         public long QualificationId { get; set; }
 
-        [Required(ErrorMessage = "Institute Name is required")]
-        [MaxLength(50)]
+        [Required(ErrorMessage = "Institute Name is required"), MaxLength(100)]
         public string InstituteName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Board or University Name is required")]
-        [MaxLength(50)]
+        [Required(ErrorMessage = "Board or University Name is required"), MaxLength(100)]
         public string BoardOrUniversityName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "degree Name is required")]
-        [MaxLength(50)]
+        [Required(ErrorMessage = "Degree Name is required"), MaxLength(100)]
         public string DegreeName { get; set; } = string.Empty;
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }   

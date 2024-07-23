@@ -104,7 +104,7 @@ builder.Services.AddScoped<IPersonalInfoServices, PersonalInfoServices>();
 builder.Services.AddScoped<IUrlInfoRepository, UrlInfoRepository>();
 builder.Services.AddScoped<IUrlInfoServices, UrlInfoServices>();
 
-builder.Services.AddScoped<IJobPostRepository, JodPostRepository>();
+builder.Services.AddScoped<IJobPostRepository, JobPostRepository>();
 builder.Services.AddScoped<IJobPostServices, JobPostServices>();
 
 builder.Services.AddControllers();

@@ -11,14 +11,15 @@ namespace JobPortal.Model
 {
     [Table("UrlNames")]
     [Index(nameof(URLName), IsUnique = true)]
+    [Index(nameof(URLCode), IsUnique = true)]
     public class UrlName : BaseEntity
     {
-        [Required(ErrorMessage = "URL Name is Required")]
-        [MaxLength(50)]
+        [Required(ErrorMessage = "URL Name is Required"), MaxLength(50)]
         public string URLName { get; set; } = string.Empty;
 
-        [MaxLength(50)]
+        [MaxLength(10)]
         public string URLCode { get; set; } = string.Empty;
+
         public bool IsActive { get; set; } = true;
     }
 }

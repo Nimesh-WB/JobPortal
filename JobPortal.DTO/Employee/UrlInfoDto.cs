@@ -10,9 +10,10 @@ namespace JobPortal.DTO.Employee
     public class UrlInfoDto
     {
         public record CreateUrlInfoDto(
-            [Required] long UserId,
-            [Required] long UrlNameId,
-            [Required] string UrlValue
+            [Required(ErrorMessage = "User Id is Required")] long UserId,
+            [Required(ErrorMessage = "UrlName Id is Required")] long UrlNameId,
+            [Required(ErrorMessage = "Url is Required")] string UrlValue,
+            long CreatedBy
         );
         public record GetUrlInfoDto(
             long Id,
@@ -21,10 +22,10 @@ namespace JobPortal.DTO.Employee
             string UrlValue
         );
         public record UpdateUrlInfoDto(
-            long Id,
             long UserId,
             long UrlNameId,
-            string UrlValue
+            string UrlValue,
+            long UpdatedBy
         );
     }
 }

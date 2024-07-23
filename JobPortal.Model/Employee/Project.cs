@@ -16,19 +16,18 @@ namespace JobPortal.Model.Employee
         [ForeignKey("Users"), Required(ErrorMessage = "User ID is required")]
         public long UserId { get; set; }
 
-        [Required(ErrorMessage = "Project Title is required")]
-        [MaxLength(50)]
+        [Required(ErrorMessage = "Project Title is required"), MaxLength(50)]
         public string ProjectTitle { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Project Description is required")]
-        [MaxLength(50)]
         public string ProjectDescription { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Skills is required")]
-        [MaxLength(50)]
+        [Required(ErrorMessage = "Skill is required")]
         public string Skills { get; set; } = string.Empty;
+
         public DateTime ExpiryDate { get; set; }
+
         public string Contributor { get; set; } = string.Empty;
+
         public string ProjectUrl { get; set; } = string.Empty;
     }
 }

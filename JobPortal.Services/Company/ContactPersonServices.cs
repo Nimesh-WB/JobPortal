@@ -31,14 +31,14 @@ namespace JobPortal.Services.Company
             {
                 var contactPerson = await _contactPersonRepository.CreateAsync(new ContactPerson()
                 {
-                    CompanyId = contactPersonDto.CompanyId,
+                    CompanyInfoId = contactPersonDto.CompanyInfoId,
                     ContactPersonName = contactPersonDto.ContactPersonName,
                     ContactPersonEmail = contactPersonDto.ContactPersonEmail,
                     ContactPersonPhone = contactPersonDto.ContactPersonPhone,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
-                var companyInfo = await _companyInfoRepository.GetAsync(contactPerson.CompanyId);
+                var companyInfo = await _companyInfoRepository.GetAsync(contactPerson.CompanyInfoId);
 
                 if (companyInfo == null)
                 {
@@ -156,7 +156,7 @@ namespace JobPortal.Services.Company
 
                 await _contactPersonRepository.UpdateAsync(oldContactPerson);
 
-                var companyInfo = await _companyInfoRepository.GetAsync(oldContactPerson.CompanyId);
+                var companyInfo = await _companyInfoRepository.GetAsync(oldContactPerson.CompanyInfoId);
 
                 if (companyInfo == null)
                 {

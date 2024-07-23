@@ -27,6 +27,8 @@ namespace JobPortal.Services
                 {
                     GenderName = genderDto.GenderName,
                     GenderCode = genderDto.GenderName.ToUpper().Substring(0, 1),
+                    CreatedBy = genderDto.CreatedBy,
+                    UpdatedBy = genderDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -115,6 +117,8 @@ namespace JobPortal.Services
 
                 oldGender.GenderName = genderDto.GenderName;
                 oldGender.GenderCode = genderDto.GenderName.ToUpper().Substring(0, 1);
+                oldGender.IsActive = genderDto.IsActive ? genderDto.IsActive : true;
+                oldGender.UpdatedBy = genderDto.UpdatedBy;
                 oldGender.UpdatedAt = DateTime.Now;
 
                 var gender = await _genderRepository.UpdateAsync(oldGender);

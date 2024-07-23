@@ -26,7 +26,9 @@ namespace JobPortal.Services
                 var qualification = await _qualificationRepository.CreateAsync(new Qualification()
                 {
                     QualificationName = qualificationDto.QualificationName,
-                    QualificationCode = qualificationDto.QualificationName.ToUpper().Substring(0, 1),
+                    QualificationCode = qualificationDto.QualificationCode,
+                    CreatedBy = qualificationDto.CreatedBy,
+                    UpdatedBy = qualificationDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -114,7 +116,9 @@ namespace JobPortal.Services
                 }
 
                 oldQualification.QualificationName = qualificationDto.QualificationName;
-                oldQualification.QualificationCode = qualificationDto.QualificationName.ToUpper().Substring(0, 1);
+                oldQualification.QualificationCode = qualificationDto.QualificationCode;
+                oldQualification.IsActive = qualificationDto.IsActive ? qualificationDto.IsActive : true;
+                oldQualification.UpdatedBy = qualificationDto.UpdatedBy;
                 oldQualification.UpdatedAt = DateTime.Now;
 
                 var qualification = await _qualificationRepository.UpdateAsync(oldQualification);

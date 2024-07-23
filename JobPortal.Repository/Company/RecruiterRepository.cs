@@ -27,7 +27,7 @@ namespace JobPortal.Repository.Company
             {
                 var recruiters = await _dbContext.recruiters
                     .Include(li => li.CompanyInfo)
-                    .Where(li => li.CompanyId == companyId)
+                    .Where(li => li.CompanyInfoId == companyId)
                     .ToListAsync();
 
                 return recruiters;
