@@ -102,11 +102,11 @@ namespace JobPortal.Services.Company
             }
         }
 
-        public async Task<GetContactPersonDto> GetContactPersonByCompanyIdAsync(long companyId)
+        public async Task<GetContactPersonDto> GetContactPersonByCompanyInfoIdAsync(long companyInfoId)
         {
             try
             {
-                var contactPersons = await _contactPersonRepository.GetContactPersonByCompanyId(companyId);
+                var contactPersons = await _contactPersonRepository.GetContactPersonByCompanyInfoId(companyInfoId);
 
                 var contactPersonDto = new GetContactPersonDto(
                     contactPersons.Id, contactPersons.ContactPersonName, contactPersons.ContactPersonPhone, contactPersons.ContactPersonEmail

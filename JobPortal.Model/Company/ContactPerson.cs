@@ -15,7 +15,7 @@ namespace JobPortal.Model.Company
     [Index(nameof(ContactPersonPhone), IsUnique = true)]
     public class ContactPerson : BaseEntity
     {
-        [ForeignKey("Companies"), Required(ErrorMessage = "Company Id is required!")]
+        [ForeignKey("CompanyInfos"), Required(ErrorMessage = "Company Id is required!")]
         public long CompanyInfoId { get; set; }
         public virtual CompanyInfo CompanyInfo { get; set; }
         [Required(ErrorMessage = "Contact Person Name is required!")]

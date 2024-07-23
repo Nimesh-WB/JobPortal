@@ -55,11 +55,11 @@ namespace JobPortal.API.Controllers.Company
 
         // GET api/<CompanyInfoController>/user/5
         [HttpGet("user/{userId}")]
-        public async Task<ActionResult<GetContactPersonDto>> GetContactPersonByCompanyId(long companyId)
+        public async Task<ActionResult<GetContactPersonDto>> GetContactPersonByCompanyInfoId(long companyId)
         {
             try
             {
-                var contactPerson = await _contactPersonServices.GetContactPersonByCompanyIdAsync(companyId);
+                var contactPerson = await _contactPersonServices.GetContactPersonByCompanyInfoIdAsync(companyId);
                 return Ok(contactPerson);
             }
             catch (Exception ex)

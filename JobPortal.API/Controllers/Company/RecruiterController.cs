@@ -52,13 +52,13 @@ namespace JobPortal.API.Controllers.Company
             }
         }
 
-        // GET api/<RecruiterController>/user/1
-        [HttpGet("user/{userId}")]
-        public async Task<ActionResult<IEnumerable<GetRecruiterDto>>> GetRecruiterByCompanyId(long userId)
+        // GET api/<RecruiterController>/company/1
+        [HttpGet("company/{companyInfoId}")]
+        public async Task<ActionResult<IEnumerable<GetRecruiterDto>>> GetRecruiterByCompanyId(long companyInfoId)
         {
             try
             {
-                var recruiters = await _recruiterServices.GetRecruiterByCompanyId(userId);
+                var recruiters = await _recruiterServices.GetRecruiterByCompanyId(companyInfoId);
                 return Ok(recruiters);
             }
             catch (Exception ex)

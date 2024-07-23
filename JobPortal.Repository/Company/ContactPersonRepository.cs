@@ -18,13 +18,13 @@ namespace JobPortal.Repository.Company
             _dbContext = dbcontext;
         }
 
-        public async Task<ContactPerson> GetContactPersonByCompanyId(long companyId)
+        public async Task<ContactPerson> GetContactPersonByCompanyInfoId(long companyInfoId)
         {
             try
             {
                 var contactPerson = await _dbContext.contactPersons
                     .Include(li => li.CompanyInfo)
-                    .FirstOrDefaultAsync(li => li.CompanyInfoId == companyId);
+                    .FirstOrDefaultAsync(li => li.CompanyInfoId == companyInfoId);
                 return contactPerson;
 
             }

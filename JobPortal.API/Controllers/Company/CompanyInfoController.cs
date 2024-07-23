@@ -26,8 +26,8 @@ namespace JobPortal.API.Controllers.Company
         {
             try
             {
-                var companies = await _companyInfoServices.GetAllCompaniesAsync();
-                return Ok(companies);
+                var companyInfos = await _companyInfoServices.GetAllCompaniesAsync();
+                return Ok(companyInfos);
             }
             catch (Exception ex)
             {
@@ -50,13 +50,13 @@ namespace JobPortal.API.Controllers.Company
             }
         }
 
-        // GET api/<CompanyInfoController>/user/5
-        [HttpGet("user/{userId}")]
-        public async Task<ActionResult<GetCompanyInfoDto>> GetCompanyInfoByUserId(long userId)
+        // GET api/<CompanyInfoController>/company/5
+        [HttpGet("company/{companyInfoId}")]
+        public async Task<ActionResult<GetCompanyInfoDto>> GetCompanyInfoByUserId(long companyInfoId)
         {
             try
             {
-                var companyInfo = await _companyInfoServices.GetCompanyInfoByUserIdAsync(userId);
+                var companyInfo = await _companyInfoServices.GetCompanyInfoByUserIdAsync(companyInfoId);
                 return Ok(companyInfo);
             }
             catch (Exception ex)
