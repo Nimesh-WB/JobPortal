@@ -35,7 +35,7 @@ namespace JobPortal.API.Migrations
                         column: x => x.CompanyInfoId,
                         principalTable: "Companies",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

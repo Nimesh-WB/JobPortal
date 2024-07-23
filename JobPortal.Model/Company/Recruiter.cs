@@ -15,9 +15,9 @@ namespace JobPortal.Model.Company
     [Index(nameof(RecruiterPhone), IsUnique = true)]
     public class Recruiter : BaseEntity
     {
-        [ForeignKey("Companies"), Required(ErrorMessage = "Company Id is required!")]
+        [ForeignKey("CompanyInfos"), Required(ErrorMessage = "Company Id is required!")]
         public long CompanyInfoId { get; set; }
-        public virtual CompanyInfo CompanyInfo { get; set; } = new CompanyInfo();
+        public virtual CompanyInfo CompanyInfo { get; set; }
         [Required(ErrorMessage = "Recruiter Name is required!")]
         [StringLength(100)]
         public string RecruiterName { get; set; } = string.Empty;

@@ -107,6 +107,9 @@ builder.Services.AddScoped<IUrlInfoServices, UrlInfoServices>();
 builder.Services.AddScoped<IJobPostRepository, JobPostRepository>();
 builder.Services.AddScoped<IJobPostServices, JobPostServices>();
 
+builder.Services.AddScoped<IApplyInfoRepository, ApplyInfoRepository>();
+builder.Services.AddScoped<IApplyInfoServices, ApplyInfoServices>();
+
 builder.Services.AddControllers();
 
 var app = builder.Build();

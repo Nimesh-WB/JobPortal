@@ -17,7 +17,7 @@ namespace JobPortal.Model.Company
     {
         [ForeignKey("Companies"), Required(ErrorMessage = "Company Id is required!")]
         public long CompanyInfoId { get; set; }
-        public virtual CompanyInfo CompanyInfo { get; set; } = new CompanyInfo();
+        public virtual CompanyInfo CompanyInfo { get; set; }
         [Required(ErrorMessage = "Contact Person Name is required!")]
         [StringLength(100)]
         public string ContactPersonName { get; set; } = string.Empty;

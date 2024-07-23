@@ -490,7 +490,7 @@ namespace JobPortal.API.Migrations
                 column: "UserId",
                 principalTable: "Users",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Restrict);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_ContactPersons_CompanyInfos_CompanyInfoId",
@@ -498,7 +498,7 @@ namespace JobPortal.API.Migrations
                 column: "CompanyInfoId",
                 principalTable: "CompanyInfos",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Restrict);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_JobPosts_CompanyInfos_CompanyInfoId",
@@ -514,7 +514,7 @@ namespace JobPortal.API.Migrations
                 column: "CompanyInfoId",
                 principalTable: "CompanyInfos",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Restrict);
         }
 
         /// <inheritdoc />
@@ -981,7 +981,7 @@ namespace JobPortal.API.Migrations
                 column: "UserId",
                 principalTable: "Users",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Restrict);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_ContactPersons_Companies_CompanyInfoId",
@@ -989,7 +989,7 @@ namespace JobPortal.API.Migrations
                 column: "CompanyInfoId",
                 principalTable: "Companies",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Restrict);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_JobPosts_Companies_CompanyInfoId",
@@ -997,7 +997,7 @@ namespace JobPortal.API.Migrations
                 column: "CompanyInfoId",
                 principalTable: "Companies",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Restrict);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Recruiters_Companies_CompanyInfoId",
@@ -1005,7 +1005,7 @@ namespace JobPortal.API.Migrations
                 column: "CompanyInfoId",
                 principalTable: "Companies",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Restrict);
         }
     }
 }
