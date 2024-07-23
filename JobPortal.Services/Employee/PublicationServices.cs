@@ -36,6 +36,8 @@ namespace JobPortal.Services.Employee
                     PublicationURL = publicationDto.PublicationURL,
                     Description = publicationDto.Description,
                     UserId = publicationDto.UserId,
+                    CreatedBy = publicationDto.CreatedBy,
+                    UpdatedBy = publicationDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -137,6 +139,8 @@ namespace JobPortal.Services.Employee
                 oldPublication.PublicationURL = publicationDto.PublicationURL;
                 oldPublication.Description = publicationDto.Description;
                 oldPublication.UserId = publicationDto.UserId;
+                oldPublication.UpdatedBy = publicationDto.UpdatedBy;
+                oldPublication.UpdatedAt = DateTime.Now;
                 oldPublication.IsActive = publicationDto.IsActive;
 
                 await _publicationRepository.UpdateAsync(oldPublication);

@@ -15,9 +15,9 @@ namespace JobPortal.API.Controllers
     {
         private readonly ICertificationInfoServices _certificationInfoServices;
 
-        public CertificationInfoController(ICertificationInfoServices locationServices)
+        public CertificationInfoController(ICertificationInfoServices certificationServices)
         {
-            _certificationInfoServices = locationServices;
+            _certificationInfoServices = certificationServices;
         }
 
         // GET: api/<CertificationInfoController>
@@ -68,11 +68,11 @@ namespace JobPortal.API.Controllers
 
         // POST api/<CertificationInfoController>
         [HttpPost]
-        public async Task<ActionResult<GetCertificationInfoDto>> Post([FromBody] CreateCertificationInfoDto locationDto)
+        public async Task<ActionResult<GetCertificationInfoDto>> Post([FromBody] CreateCertificationInfoDto certificationDto)
         {
             try
             {
-                var createdCertificationInfo = await _certificationInfoServices.CreateCertificationInfoAsync(locationDto);
+                var createdCertificationInfo = await _certificationInfoServices.CreateCertificationInfoAsync(certificationDto);
                 return CreatedAtAction(nameof(Get), new { id = createdCertificationInfo.Id }, createdCertificationInfo);
             }
             catch (Exception ex)
@@ -83,11 +83,11 @@ namespace JobPortal.API.Controllers
 
         // PUT api/<CertificationInfoController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<GetCertificationInfoDto>> Put(long id, [FromBody] UpdateCertificationInfoDto locationDto)
+        public async Task<ActionResult<GetCertificationInfoDto>> Put(long id, [FromBody] UpdateCertificationInfoDto certificationDto)
         {
             try
             {
-                var updatedCertificationInfo = await _certificationInfoServices.UpdateCertificationInfoAsync(id, locationDto);
+                var updatedCertificationInfo = await _certificationInfoServices.UpdateCertificationInfoAsync(id, certificationDto);
                 return Ok(updatedCertificationInfo);
             }
             catch (Exception ex)

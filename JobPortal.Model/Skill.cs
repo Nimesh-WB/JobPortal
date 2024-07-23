@@ -13,17 +13,15 @@ namespace JobPortal.Model
 {
     [Table("Skills")]
     [Index(nameof(SkillName), IsUnique = true)]
+    [Index(nameof(SkillCode), IsUnique = true)]
     public class Skill : BaseEntity
     {
-        [Required(ErrorMessage = "Skill Name is Required")]
+        [Required(ErrorMessage = "Skill Name is Required"), MaxLength(50)]
         public string SkillName { get; set; } = string.Empty;
 
+        [MaxLength(10)]
         public string SkillCode { get; set; } = string.Empty;
 
         public bool IsActive { get; set; } = true;
-
-        public ICollection<SkillInfo> SkillInfos { get; set; }
-
-        /*public ICollection<JobPost> JobPosts { get; set; }*/
     }
 }

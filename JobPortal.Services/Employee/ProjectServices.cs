@@ -36,6 +36,8 @@ namespace JobPortal.Services.Employee
                     Skills = createProjectDto.Skills,
                     ExpiryDate = createProjectDto.ExpiryDate,
                     Contributor = createProjectDto.Contributor,
+                    CreatedBy = createProjectDto.CreatedBy,
+                    UpdatedBy = createProjectDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -189,6 +191,7 @@ namespace JobPortal.Services.Employee
                 oldProject.ExpiryDate = updateProjectDto.ExpiryDate;
                 oldProject.Contributor = updateProjectDto.Contributor;
                 oldProject.ProjectUrl = updateProjectDto.ProjectUrl;
+                oldProject.UpdatedBy = updateProjectDto.UpdatedBy;
                 oldProject.UpdatedAt = DateTime.Now;
 
                 await _projectRepository.UpdateAsync(oldProject);

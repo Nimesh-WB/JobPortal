@@ -12,23 +12,22 @@ namespace JobPortal.DTO
     }
 
     public record CreateGenderDto(
-        [Required(ErrorMessage = "Gender Name is required")] string GenderName,
-        DateTime CreatedAt,
-        DateTime UpdatedAt,
-        string GenderCode = ""
+        [Required(ErrorMessage = "Gender Name is required"), MaxLength(50)] string GenderName,
+        long CreatedBy,
+        [MaxLength(10)] string GenderCode = ""
         );
 
     public record UpdateGenderDto(
-        [Required(ErrorMessage = "Gender Name is required")] string GenderName, 
-        bool IsActive, 
-        DateTime UpdatedAt, 
-        string GenderCode = ""
+        [MaxLength(50)] string GenderName,
+        bool IsActive,
+        long UpdatedBy,
+        [MaxLength(10)] string GenderCode = ""
         );
 
     public record GetGenderDto(
-        long Id, 
-        string GenderName, 
-        string GenderCode, 
+        long Id,
+        string GenderName,
+        string GenderCode,
         bool IsActive
         );
 }

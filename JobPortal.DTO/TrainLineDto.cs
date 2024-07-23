@@ -11,7 +11,21 @@ namespace JobPortal.Data
     {
     }
 
-    public record CreateTrainLineDto([Required(ErrorMessage = "TrainLineName is required")] string TrainLineName, DateTime CreatedAt, DateTime UpdatedAt, string TrainLineCode = " ");
-    public record UpdateTrainLineDto([Required(ErrorMessage = "Id is required")] int Id, [Required(ErrorMessage = "TrainLineName is required")] string TrainLineName, bool IsActive, DateTime UpdatedAt, string TrainLineCode = " ");
-    public record GetTrainLineDto(long Id, string TrainLineName, string TrainLineCode, bool IsActive);
+    public record CreateTrainLineDto(
+        [Required(ErrorMessage = "TrainLineName is required"), MaxLength(50)] string TrainLineName,
+        long CreatedBy,
+        [MaxLength(10)] string TrainLineCode = ""
+        );
+    public record UpdateTrainLineDto(
+        [MaxLength(50)] string TrainLineName,
+        long UpdatedBy,
+        bool IsActive,
+        [MaxLength(10)] string TrainLineCode = ""
+        );
+    public record GetTrainLineDto(
+        long Id, 
+        string TrainLineName, 
+        string TrainLineCode, 
+        bool IsActive
+        );
 }

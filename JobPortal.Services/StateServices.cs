@@ -27,7 +27,9 @@ namespace JobPortal.Services
                 var state = await _stateRepository.CreateAsync(new State()
                 {
                     StateName = stateDto.StateName,
-                    StateCode = stateDto.StateName.ToUpper().Substring(0, 3),
+                    StateCode = stateDto.StateCode,
+                    CreatedBy = stateDto.CreatedBy,
+                    UpdatedBy = stateDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -120,8 +122,9 @@ namespace JobPortal.Services
                 }
 
                 oldState.StateName = stateDto.StateName;
-                oldState.StateCode = stateDto.StateName.ToUpper().Substring(0, 3);
-                oldState.IsActive = stateDto.IsActive;
+                oldState.StateCode = stateDto.StateCode;
+                oldState.IsActive = stateDto.IsActive ? stateDto.IsActive : true;
+                oldState.UpdatedBy = stateDto.UpdatedBy;
                 oldState.UpdatedAt = DateTime.Now;
 
                 await _stateRepository.UpdateAsync(oldState);

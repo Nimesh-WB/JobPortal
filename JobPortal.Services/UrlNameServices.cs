@@ -27,7 +27,9 @@ namespace JobPortal.Services
                 var urlName = await _urlNameRepository.CreateAsync(new UrlName()
                 {
                     URLName = createUrlNameDto.UrlName,
-                    URLCode = createUrlNameDto.UrlName.ToUpper().Substring(0, 3),
+                    URLCode = createUrlNameDto.UrlCode,
+                    CreatedBy = createUrlNameDto.CreatedBy,
+                    UpdatedBy = createUrlNameDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -114,8 +116,9 @@ namespace JobPortal.Services
                 }
 
                 urlName.URLName = updateUrlNameDto.UrlName;
-                urlName.URLCode = updateUrlNameDto.UrlName.ToUpper().Substring(0, 3);
+                urlName.URLCode = updateUrlNameDto.UrlCode;
                 urlName.IsActive = updateUrlNameDto.IsActive;
+                urlName.UpdatedBy = updateUrlNameDto.UpdatedBy;
                 urlName.UpdatedAt = DateTime.Now;
 
                 await _urlNameRepository.UpdateAsync(urlName);

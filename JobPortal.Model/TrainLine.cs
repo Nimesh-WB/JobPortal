@@ -13,16 +13,15 @@ namespace JobPortal.Model
 {
     [Table("TrainLines")]
     [Index(nameof(TrainLineName), IsUnique = true)]
+    [Index(nameof(TrainLineCode), IsUnique = true)]
     public class TrainLine : BaseEntity
     {
-        [Required(ErrorMessage ="Train Line Name is required.")]
-        [StringLength(100)]
+        [Required(ErrorMessage ="Train Line Name is required."), MaxLength(50)]
         public string TrainLineName { get; set; } = string.Empty;
 
+        [MaxLength(10)]
         public string TrainLineCode { get; set; } = string.Empty;
 
         public bool IsActive { get; set; } = true;
-        public ICollection<LocationInfo> LocationInfos { get; set; }
-        /*public ICollection<JobPost> JobPosts { get; set; }*/
     }
 }

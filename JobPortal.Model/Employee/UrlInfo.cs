@@ -20,7 +20,7 @@ namespace JobPortal.Model.Employee
         [ForeignKey("UrlNames"), Required(ErrorMessage = "UrlName Id is Required")]
         public long UrlNameId { get; set; }
 
-        [Required(ErrorMessage = "Skill Experience is Required")]
+        [Required(ErrorMessage = "URL is Required")]
         public string UrlValue { get; set; }
     }
 }

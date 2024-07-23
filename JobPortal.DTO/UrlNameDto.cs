@@ -10,10 +10,9 @@ namespace JobPortal.DTO
     public class UrlNameDto
     {
         public record CreateUrlNameDto(
-            [Required(ErrorMessage = "URL Name is required")] string UrlName,
-            DateTime CreatedAt,
-            DateTime UpdatedAt,
-            string UrlCode = " "
+            [Required(ErrorMessage = "URL Name is required"), MaxLength(50)] string UrlName,
+            long CreatedBy,
+            [MaxLength(10)] string UrlCode = ""
         );
         public record GetUrlNameDto(
             long Id,
@@ -22,11 +21,10 @@ namespace JobPortal.DTO
             bool IsActive
         );
         public record UpdateUrlNameDto(
-            [Required(ErrorMessage = "Id is required")] long Id,
-            [Required(ErrorMessage = "Url Name is required")] string UrlName,
+            [MaxLength(50)] string UrlName,
             bool IsActive,
-            DateTime UpdatedAt,
-            string UrlCode = " "
+            long UpdatedBy,
+            [MaxLength(10)] string UrlCode = ""
         );
     }
 }

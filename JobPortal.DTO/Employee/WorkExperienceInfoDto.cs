@@ -10,14 +10,15 @@ namespace JobPortal.DTO.Employee
     public class WorkExperienceInfoDto
     {
         public record CreateWorkExperienceInfoDto(
-            [Required] long UserId,
-            [Required] long WorkTypeId,
-            [Required] long EmploymentTypeId,
-            [Required] long DesignationId,
-            [Required] string CompanyName,
+            [Required(ErrorMessage = "User Id is Required")] long UserId,
+            [Required(ErrorMessage = "Work-Type Id is Required")] long WorkTypeId,
+            [Required(ErrorMessage = "Employment-Type Id is Required")] long EmploymentTypeId,
+            [Required(ErrorMessage = "Designation Id is Required")] long DesignationId,
+            [Required(ErrorMessage = "Company Name is Required"), MaxLength(100)] string CompanyName,
             DateTime StartDate,
             DateTime EndDate,
-            string SkillsUsed
+            string SkillsUsed,
+            long CreatedBy
         );
         public record GetWorkExperienceInfoDto(
             long Id,
@@ -31,15 +32,15 @@ namespace JobPortal.DTO.Employee
             string SkillsUsed
         );
         public record UpdateWorkExperienceInfoDto(
-            long Id,
             long UserId,
             long WorkTypeId,
             long EmploymentTypeId,
             long DesignationId,
-            string CompanyName,
+            [MaxLength(100)] string CompanyName,
             DateTime StartDate,
             DateTime EndDate,
-            string SkillsUsed
+            string SkillsUsed,
+            long UpdatedBy
         );
     }
 }

@@ -1,4 +1,5 @@
-﻿using JobPortal.DTO;
+﻿using JobPortal.Data;
+using JobPortal.DTO;
 using JobPortal.IRepository;
 using JobPortal.IServices;
 using JobPortal.Model;
@@ -27,7 +28,9 @@ namespace JobPortal.Services
                 var language = await _languageRepository.CreateAsync(new Language()
                 {
                     LanguageName = createLanguageDto.LanguageName,
-                    LanguageCode = createLanguageDto.LanguageName.ToUpper().Substring(0, 3),
+                    LanguageCode = createLanguageDto.LanguageCode,
+                    CreatedBy = createLanguageDto.CreatedBy,
+                    UpdatedBy = createLanguageDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -120,8 +123,9 @@ namespace JobPortal.Services
                 }
 
                 oldLanguage.LanguageName = updateLanguageDto.LanguageName;
-                oldLanguage.LanguageCode = updateLanguageDto.LanguageName.ToUpper().Substring(0, 3);
-                oldLanguage.IsActive = updateLanguageDto.IsActive;
+                oldLanguage.LanguageCode = updateLanguageDto.LanguageCode;
+                oldLanguage.IsActive = updateLanguageDto.IsActive ? updateLanguageDto.IsActive : true;
+                oldLanguage.UpdatedBy = updateLanguageDto.UpdatedBy;
                 oldLanguage.UpdatedAt = DateTime.Now;
 
                 await _languageRepository.UpdateAsync(oldLanguage);

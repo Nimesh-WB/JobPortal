@@ -54,6 +54,8 @@ namespace JobPortal.Services.Employee
                     AddressLine1 = createLocationInfoDto.AddressLine1,
                     AddressLine2 = createLocationInfoDto.AddressLine2,
                     ZipCode = createLocationInfoDto.ZipCode,
+                    CreatedBy = createLocationInfoDto.CreatedBy,
+                    UpdatedBy = createLocationInfoDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -194,6 +196,7 @@ namespace JobPortal.Services.Employee
                 oldLocationInfo.AddressLine1 = updateLocationInfoDto.AddressLine1;
                 oldLocationInfo.AddressLine2 = updateLocationInfoDto.AddressLine2;
                 oldLocationInfo.ZipCode = updateLocationInfoDto.ZipCode;
+                oldLocationInfo.UpdatedBy = updateLocationInfoDto.UpdatedBy;
                 oldLocationInfo.UpdatedAt = DateTime.Now;
 
                 await _locationInfoRepository.UpdateAsync(oldLocationInfo);

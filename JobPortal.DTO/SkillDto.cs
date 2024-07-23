@@ -12,17 +12,16 @@ namespace JobPortal.DTO
     }
 
     public record CreateSkillDto(
-        [Required(ErrorMessage = "Skill Name is required")] string SkillName,
-        DateTime CreatedAt,
-        DateTime UpdatedAt,
-        string SkillCode = ""
+        [Required(ErrorMessage = "Skill Name is required"), MaxLength(50)] string SkillName,
+        long CreatedBy,
+        [MaxLength(10)] string SkillCode = ""
         );
 
     public record UpdateSkillDto(
-        [Required(ErrorMessage = "Skill Name is required")] string SkillName,
+        [MaxLength(50)] string SkillName,
+        long UpdatedBy,
         bool IsActive,
-        DateTime UpdatedAt,
-        string SkillCode = ""
+        [MaxLength(10)] string SkillCode = ""
         );
 
     public record GetSkillDto(

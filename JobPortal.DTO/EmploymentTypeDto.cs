@@ -12,17 +12,16 @@ namespace JobPortal.DTO
     }
 
     public record CreateEmploymentTypeDto(
-        [Required(ErrorMessage = "EmploymentTypeName is required")] string EmploymentTypeName,
-        DateTime CreatedAt,
-        DateTime UpdatedAt,
-        string EmploymentTypeCode = ""
+        [Required(ErrorMessage = "EmploymentTypeName is required"), MaxLength(50)] string EmploymentTypeName,
+        long CreatedBy,
+        [MaxLength(10)] string EmploymentTypeCode = ""
         );
 
     public record UpdateEmploymentTypeDto(
-        [Required(ErrorMessage = "EmploymentTypeName is required")] string EmploymentTypeName,
+        [MaxLength(50)] string EmploymentTypeName,
+        long UpdatedBy,
         bool IsActive,
-        DateTime UpdatedAt,
-        string EmploymentTypeCode = ""
+        [MaxLength(10)] string EmploymentTypeCode = ""
         );
 
     public record GetEmploymentTypeDto(

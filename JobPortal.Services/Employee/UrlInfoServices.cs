@@ -36,6 +36,8 @@ namespace JobPortal.Services.Employee
                     UserId = createUrlInfoDto.UserId,
                     UrlNameId = createUrlInfoDto.UrlNameId,
                     UrlValue = createUrlInfoDto.UrlValue,
+                    CreatedBy = createUrlInfoDto.CreatedBy,
+                    UpdatedBy = createUrlInfoDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -148,6 +150,7 @@ namespace JobPortal.Services.Employee
                 oldUrlInfo.UserId = updateUrlInfoDto.UserId;
                 oldUrlInfo.UrlNameId = updateUrlInfoDto.UrlNameId;
                 oldUrlInfo.UrlValue = updateUrlInfoDto.UrlValue;
+                oldUrlInfo.UpdatedBy = updateUrlInfoDto.UpdatedBy;
                 oldUrlInfo.UpdatedAt = DateTime.Now;
 
                 await _urlInfoRepository.UpdateAsync(oldUrlInfo);

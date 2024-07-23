@@ -12,13 +12,15 @@ namespace JobPortal.Model
 {
     [Table("Cities")]
     [Index(nameof(CityName), IsUnique = true)]
+    [Index(nameof(CityCode), IsUnique = true)]
     public class City : BaseEntity
     {
-        [Required(ErrorMessage = "City Name is Required!")]
-        [StringLength(100)]
+        [Required(ErrorMessage = "City Name is Required!"), MaxLength(50)]
         public string CityName { get; set; } = string.Empty;
+
+        [MaxLength(10)]
         public string CityCode { get; set; } = string.Empty;
+
         public bool IsActive { get; set; } = true;
-        public ICollection<LocationInfo> LocationInfos { get; set; }
     }
 }

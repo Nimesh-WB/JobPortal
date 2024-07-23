@@ -12,7 +12,7 @@ namespace JobPortal.DTO.Company
     }
 
     public record CreateJobPostDto(
-        [Required(ErrorMessage = "CompanyId is required")] long CompanyId,
+        [Required(ErrorMessage = "CompanyInfoId is required")] long CompanyInfoId,
         [Required(ErrorMessage = "RecruiterId is required")] long RecruiterId,
         [Required(ErrorMessage = "DesignationId is required")] long DesignationId,
         [Required(ErrorMessage = "SkillId is required")] long SkillId,
@@ -37,7 +37,7 @@ namespace JobPortal.DTO.Company
         DateTime UpdatedAt
         );
     public record UpdateJobPostDto(
-        long CompanyId,
+        long CompanyInfoId,
         long RecruiterId,
         long DesignationId,
         long SkillId,

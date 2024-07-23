@@ -12,14 +12,15 @@ namespace JobPortal.Model
 {
     [Table("Designations")]
     [Index(nameof(DesignationName), IsUnique = true)]
+    [Index(nameof(DesignationCode), IsUnique = true)]
     public class Designation : BaseEntity
     {
-        [Required(ErrorMessage = "Designation Name is Required!")]
-        [StringLength(100)]
+        [Required(ErrorMessage = "Designation Name is Required!"), MaxLength(50)]
         public string DesignationName { get; set; } = string.Empty;
-        public string DesignationCode { get; set; } = string.Empty;
-        public bool IsActive { get; set; } = true;
 
-        /*public ICollection<JobPost> JobPosts { get; set; }*/
+        [MaxLength(10)]
+        public string DesignationCode { get; set; } = string.Empty;
+
+        public bool IsActive { get; set; } = true;
     }
 }

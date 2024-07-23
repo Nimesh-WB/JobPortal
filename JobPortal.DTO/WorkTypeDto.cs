@@ -10,10 +10,9 @@ namespace JobPortal.DTO
     public class WorkTypeDto
     {
         public record CreateWorkTypeDto(
-            [Required(ErrorMessage = "WorkTypeName is required")] string WorkTypeName,
-            DateTime CreatedAt,
-            DateTime UpdatedAt,
-            string WorkTypeCode = " "
+            [Required(ErrorMessage = "Work-Type Name is required"), MaxLength(50)] string WorkTypeName,
+            long CreatedBy,
+            [MaxLength(10)] string WorkTypeCode = ""
         );
         public record GetWorkTypeDto(
             long Id,
@@ -22,11 +21,10 @@ namespace JobPortal.DTO
             bool IsActive
         );
         public record UpdateWorkTypeDto(
-            [Required(ErrorMessage = "Id is required")] long Id,
-            [Required(ErrorMessage = "WorkTypeName is required")] string WorkTypeName,
+            [MaxLength(50)] string WorkTypeName,
             bool IsActive,
-            DateTime UpdatedAt,
-            string WorkTypeCode = " "
+            long UpdatedBy,
+            [MaxLength(10)] string WorkTypeCode = ""
         );
     }
 }

@@ -39,6 +39,8 @@ namespace JobPortal.Services.Employee
                     StartDate = createEducationDto.StartDate,
                     EndDate = createEducationDto.EndDate,
                     GradeOrPercentage = createEducationDto.GradeOrPercentage,
+                     CreatedBy = createEducationDto.CreatedBy,
+                     UpdatedBy = createEducationDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 });
@@ -196,6 +198,7 @@ namespace JobPortal.Services.Employee
                 oldeducation.StartDate = updateEducationDto.StartDate;
                 oldeducation.EndDate = updateEducationDto.EndDate;  
                 oldeducation.GradeOrPercentage = updateEducationDto.GradeOrPercentage;
+                oldeducation.UpdatedBy = updateEducationDto.UpdatedBy;
                 oldeducation.UpdatedAt = DateTime.Now;
 
                 await _educationRepository.UpdateAsync(oldeducation);

@@ -13,10 +13,10 @@ using System.Threading.Tasks;
 
 namespace JobPortal.Repository.Company
 {
-    public class JodPostRepository : Repository<JobPost>, IJobPostRepository
+    public class JobPostRepository : Repository<JobPost>, IJobPostRepository
     {
         private readonly JobPortalDbContext _dbcontext;
-        public JodPostRepository(JobPortalDbContext dbcontext) : base(dbcontext)
+        public JobPostRepository(JobPortalDbContext dbcontext) : base(dbcontext)
         {
             _dbcontext = dbcontext;
         }
@@ -36,7 +36,7 @@ namespace JobPortal.Repository.Company
                     .Include(li => li.WorkType)
                     .Include(li => li.EmploymentType)
                     .Include(li => li.Qualification)
-                    .Where(li => li.CompanyId == companyId)
+                    .Where(li => li.CompanyInfoId == companyId)
                     .ToListAsync();
 
                 return jobPosts;

@@ -22,12 +22,10 @@ namespace JobPortal.Model.Employee
 
         public string ProfilePic { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "First Name is Required")]
-        [MaxLength(50)]
+        [Required(ErrorMessage = "First Name is Required"), MaxLength(50)]
         public string FirstName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Last Name is Required")]
-        [MaxLength(50)]
+        [Required(ErrorMessage = "Last Name is Required"), MaxLength(50)]
         public string LastName { get; set; } = string.Empty;
 
     }

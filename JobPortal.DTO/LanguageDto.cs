@@ -10,23 +10,23 @@ namespace JobPortal.DTO
     public class LanguageDto
     {
         public record CreateLanguageDto(
-            [Required(ErrorMessage = "LanguageName is required")] string LanguageName, 
-            DateTime CreatedAt, 
-            DateTime UpdatedAt, 
-            string LanguageCode = " "
+            [Required(ErrorMessage = "Language Name is required"), MaxLength(50)] string LanguageName,
+            long CreatedBy,
+        [MaxLength(10)] string LanguageCode = ""
         );
+
         public record GetLanguageDto(
-            long Id, 
-            string LanguageName, 
-            string LanguageCode, 
+            long Id,
+            [MaxLength(50)] string LanguageName,
+            [MaxLength(10)] string LanguageCode,
             bool IsActive
         );
+
         public record UpdateLanguageDto(
-            [Required(ErrorMessage = "Id is required")] long Id,
-            [Required(ErrorMessage = "LanguageName is required")] string LanguageName,
+            string LanguageName,
             bool IsActive,
-            DateTime UpdatedAt,
-            string LanguageCode = " "
+            long UpdatedBy,
+            string LanguageCode = ""
         );
     }
 }

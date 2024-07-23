@@ -40,6 +40,8 @@ namespace JobPortal.Services.Employee
                 {
                     UserId = createLanguageInfoDto.UserId,
                     LanguageId = createLanguageInfoDto.LanguageID,
+                    CreatedBy = createLanguageInfoDto.CreatedBy,
+                    UpdatedBy = createLanguageInfoDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                     
@@ -149,6 +151,7 @@ namespace JobPortal.Services.Employee
 
                 oldLanguageInfo.UserId = updateLanguageInfoDto.UserId;
                 oldLanguageInfo.LanguageId = updateLanguageInfoDto.LanguageID;
+                oldLanguageInfo.UpdatedBy = updateLanguageInfoDto.UpdatedBy;
                 oldLanguageInfo.UpdatedAt = DateTime.Now;
 
                 await _languageInfoRepository.UpdateAsync(oldLanguageInfo);

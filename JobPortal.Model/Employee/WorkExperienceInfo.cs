@@ -27,7 +27,7 @@ namespace JobPortal.Model.Employee
         [ForeignKey("Designations"), Required(ErrorMessage = "Designation Id is Required")]
         public long DesignationId { get; set; }
 
-        [Required(ErrorMessage = "Company Name is Required")]
+        [Required(ErrorMessage = "Company Name is Required"), MaxLength(100)]
         public string CompanyName { get; set; }
 
         [Required(ErrorMessage = "Start Date is Required")]

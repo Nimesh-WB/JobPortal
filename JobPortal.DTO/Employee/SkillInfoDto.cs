@@ -10,9 +10,10 @@ namespace JobPortal.DTO.Employee
     public class SkillInfoDto
     {
         public record CreateSkillInfoDto(
-            [Required] long UserId,
-            [Required] long SkillId,
-            [Required] int SkillExperience
+            [Required(ErrorMessage = "User Id is Required")] long UserId,
+            [Required(ErrorMessage = "Skill Id is Required")] long SkillId,
+            [Required(ErrorMessage = "Skill Experience is Required")] int SkillExperience,
+            long CreatedBy
         );
         public record GetSkillInfoDto(
             long Id,
@@ -21,10 +22,10 @@ namespace JobPortal.DTO.Employee
             int SkillExperience
         );
         public record UpdateSkillInfoDto(
-            long Id,
             long UserId,
             long SkillId,
-            int SkillExperience
+            int SkillExperience,
+            long UpdatedBy
         );
     }
 }

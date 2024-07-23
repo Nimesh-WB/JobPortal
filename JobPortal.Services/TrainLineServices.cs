@@ -27,9 +27,11 @@ namespace JobPortal.Services
                 var trainLine = await _trainLineRepository.CreateAsync(new TrainLine()
                 {
                     TrainLineName = trainLineDto.TrainLineName,
-                    TrainLineCode = trainLineDto.TrainLineName.ToUpper().Substring(0, 3),
+                    TrainLineCode = trainLineDto.TrainLineCode,
                     CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    UpdatedAt = DateTime.Now,
+                    CreatedBy = trainLineDto.CreatedBy,
+                    UpdatedBy = trainLineDto.CreatedBy
                 });
 
                 var createdTrainLine = new GetTrainLineDto(trainLine.Id, trainLine.TrainLineName, trainLine.TrainLineCode, trainLine.IsActive);
@@ -120,8 +122,9 @@ namespace JobPortal.Services
                 }
 
                 oldTrainLine.TrainLineName = trainLineDto.TrainLineName;
-                oldTrainLine.TrainLineCode = trainLineDto.TrainLineName.ToUpper().Substring(0, 3);
-                oldTrainLine.IsActive = trainLineDto.IsActive;
+                oldTrainLine.TrainLineCode = trainLineDto.TrainLineCode;
+                oldTrainLine.IsActive = trainLineDto.IsActive ? trainLineDto.IsActive : true;
+                oldTrainLine.UpdatedBy = trainLineDto.UpdatedBy;
                 oldTrainLine.UpdatedAt = DateTime.Now;
 
                 await _trainLineRepository.UpdateAsync(oldTrainLine);

@@ -12,7 +12,7 @@ namespace JobPortal.DTO.Company
     }
     public record CreateContactPersonDto
         (
-        [Required(ErrorMessage = "Company Id is required!")] long CompanyId,
+        [Required(ErrorMessage = "Company Id is required!")] long CompanyInfoId,
         [Required(ErrorMessage = "Contact Person Name is required!")] string ContactPersonName,
         [Required(ErrorMessage = "Contact Person Phone Number is required!")] long ContactPersonPhone,
         [Required(ErrorMessage = "Contact Person Email is required!")] string ContactPersonEmail,
@@ -23,7 +23,7 @@ namespace JobPortal.DTO.Company
     public record UpdateContactPersonDto
         (
         [Required(ErrorMessage = "Id is required")] long Id,
-        [Required(ErrorMessage = "Company Id is required!")] long CompanyId,
+        [Required(ErrorMessage = "Company Id is required!")] long CompanyInfoId,
         [Required(ErrorMessage = "Contact Person Name is required!")] string ContactPersonName,
         [Required(ErrorMessage = "Contact Person Phone Number is required!")] long ContactPersonPhone,
         [Required(ErrorMessage = "Contact Person Email is required!")] string ContactPersonEmail,

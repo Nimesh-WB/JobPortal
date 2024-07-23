@@ -26,7 +26,9 @@ namespace JobPortal.Services
                 var skill = await _skillRepository.CreateAsync(new Skill()
                 {
                     SkillName = skillDto.SkillName,
-                    SkillCode = skillDto.SkillName.ToUpper().Substring(0, 1),
+                    SkillCode = skillDto.SkillCode,
+                    CreatedBy = skillDto.CreatedBy,
+                    UpdatedBy = skillDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -112,7 +114,9 @@ namespace JobPortal.Services
                 }
 
                 oldSkill.SkillName = skillDto.SkillName;
-                oldSkill.SkillCode = !string.IsNullOrEmpty(skillDto.SkillCode) ? skillDto.SkillCode : skillDto.SkillName.ToUpper().Substring(0, 1);
+                oldSkill.SkillCode = skillDto.SkillCode;
+                oldSkill.IsActive = skillDto.IsActive ? skillDto.IsActive : true;
+                oldSkill.UpdatedBy = skillDto.UpdatedBy;
                 oldSkill.UpdatedAt = DateTime.Now;
 
                 await _skillRepository.UpdateAsync(oldSkill);

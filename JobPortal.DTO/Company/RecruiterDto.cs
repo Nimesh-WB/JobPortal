@@ -12,7 +12,7 @@ namespace JobPortal.DTO.Company
     }
     public record CreateRecruiterDto
         (
-        [Required(ErrorMessage = "Company Id is required!")] long CompanyId,
+        [Required(ErrorMessage = "Company Id is required!")] long CompanyInfoId,
         [Required(ErrorMessage = "Recruiter Name is required!")] string RecruiterName,
         [Required(ErrorMessage = "Recruiter Phone Number is required!")] long RecruiterPhone,
         [Required(ErrorMessage = "Recruiter Email is required!")] string RecruiterEmail,
@@ -23,7 +23,7 @@ namespace JobPortal.DTO.Company
     public record UpdateRecruiterDto
         (
         [Required(ErrorMessage = "Id is required")] long Id,
-        [Required(ErrorMessage = "Company Id is required!")] long CompanyId,
+        [Required(ErrorMessage = "Company Id is required!")] long CompanyInfoId,
         [Required(ErrorMessage = "Recruiter Name is required!")] string RecruiterName,
         [Required(ErrorMessage = "Recruiter Phone Number is required!")] long RecruiterPhone,
         [Required(ErrorMessage = "Recruiter Email is required!")] string RecruiterEmail,

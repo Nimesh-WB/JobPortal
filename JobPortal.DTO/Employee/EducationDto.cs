@@ -12,12 +12,13 @@ namespace JobPortal.DTO.Employee
         public record CreateEducationDto(
             [Required(ErrorMessage = "User Id is Required")] long UserId,
             [Required(ErrorMessage = "Qualification Id is Required")] long QualificationId,
-            [Required(ErrorMessage = "Institute Name is required")] string InstituteName,
-            [Required(ErrorMessage = "Board or University Name is required")] string BoardOrUniversityName,
-            [Required(ErrorMessage = "Degree Name is required")] string DegreeName,
+            [Required(ErrorMessage = "Institute Name is required"), MaxLength(100)] string InstituteName,
+            [Required(ErrorMessage = "Board or University Name is required"), MaxLength(100)] string BoardOrUniversityName,
+            [Required(ErrorMessage = "Degree Name is required"), MaxLength(100)] string DegreeName,
             DateTime StartDate,
             DateTime EndDate,
-            float GradeOrPercentage
+            float GradeOrPercentage,
+            long CreatedBy
         );
 
         public record GetEducationDto(
@@ -33,15 +34,15 @@ namespace JobPortal.DTO.Employee
         );
 
         public record UpdateEducationDto(
-            long Id,
             long UserId,
             long QualificationId,
-            string InstituteName,
-            string BoardOrUniversityName,
-            string DegreeName,
+            [MaxLength(100)] string InstituteName,
+            [MaxLength(100)] string BoardOrUniversityName,
+            [MaxLength(100)] string DegreeName,
             DateTime StartDate,
             DateTime EndDate,
-            float GradeOrPercentage
+            float GradeOrPercentage,
+            long UpdatedBy
         );
     }
 }

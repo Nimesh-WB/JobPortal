@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace JobPortal.Model.Company
 {
-    [Table("Companies")]
+    [Table("CompanyInfos")]
     [Index(nameof(CompanyName), IsUnique = true)]
     [Index(nameof(CompanyEmail), IsUnique = true)]
     [Index(nameof(CompanyPhone), IsUnique = true)]

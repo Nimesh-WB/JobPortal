@@ -26,7 +26,9 @@ namespace JobPortal.Services
                 var empType = await _employmentTypeRepository.CreateAsync(new EmploymentType()
                 {
                     EmploymentTypeName = employmentTypeDto.EmploymentTypeName,
-                    EmploymentTypeCode = employmentTypeDto.EmploymentTypeName.ToUpper().Substring(0, 3),
+                    EmploymentTypeCode = employmentTypeDto.EmploymentTypeCode,
+                    CreatedBy = employmentTypeDto.CreatedBy,
+                    UpdatedBy = employmentTypeDto.CreatedBy,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -114,8 +116,9 @@ namespace JobPortal.Services
                 }
 
                 oldEmpType.EmploymentTypeName = employmentTypeDto.EmploymentTypeName;
-                oldEmpType.EmploymentTypeCode = employmentTypeDto.EmploymentTypeName.ToUpper().Substring(0, 3);
-                oldEmpType.IsActive = employmentTypeDto.IsActive;
+                oldEmpType.EmploymentTypeCode = employmentTypeDto.EmploymentTypeCode;
+                oldEmpType.UpdatedBy = employmentTypeDto.UpdatedBy;
+                oldEmpType.IsActive = employmentTypeDto.IsActive ? employmentTypeDto.IsActive : true;
                 oldEmpType.UpdatedAt = DateTime.Now;
 
                 var empType = await _employmentTypeRepository.UpdateAsync(oldEmpType);

@@ -24,7 +24,7 @@ namespace JobPortal.Repository.Company
             {
                 var contactPerson = await _dbContext.contactPersons
                     .Include(li => li.CompanyInfo)
-                    .FirstOrDefaultAsync(li => li.CompanyId == companyId);
+                    .FirstOrDefaultAsync(li => li.CompanyInfoId == companyId);
                 return contactPerson;
 
             }

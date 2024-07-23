@@ -31,9 +31,10 @@ namespace JobPortal.Model.Employee
         [ForeignKey("TrainLines"), Required(ErrorMessage = "Train Line Id is Required")]
         public long TrainLineId { get; set; }
 
-        [Required(ErrorMessage = "Address Line 1 is Required")]
+        [Required(ErrorMessage = "Address Line 1 is Required"), MaxLength(250)]
         public string AddressLine1 { get; set; } = string.Empty;
 
+        [MaxLength(250)]
         public string AddressLine2 { get; set; } = string.Empty;
 
         public long ZipCode { get; set; }

@@ -32,14 +32,14 @@ namespace JobPortal.Services.Company
             {
                 var recruiter = await _recruiterRepository.CreateAsync(new Recruiter()
                 {
-                    CompanyId = recruiterDto.CompanyId,
+                    CompanyInfoId = recruiterDto.CompanyInfoId,
                     RecruiterName = recruiterDto.RecruiterName,
                     RecruiterEmail = recruiterDto.RecruiterEmail,
                     RecruiterPhone = recruiterDto.RecruiterPhone,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
-                var companyInfo = await _companyInfoRepository.GetAsync(recruiter.CompanyId);
+                var companyInfo = await _companyInfoRepository.GetAsync(recruiter.CompanyInfoId);
 
                 if (companyInfo == null)
                 {
@@ -161,7 +161,7 @@ namespace JobPortal.Services.Company
 
                 await _recruiterRepository.UpdateAsync(oldRecruiter);
 
-                var companyInfo = await _companyInfoRepository.GetAsync(oldRecruiter.CompanyId);
+                var companyInfo = await _companyInfoRepository.GetAsync(oldRecruiter.CompanyInfoId);
 
                 if (companyInfo == null)
                 {
