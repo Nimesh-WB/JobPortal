@@ -16,6 +16,6 @@ namespace JobPortal.IServices.Company
         public Task<GetContactPersonDto> CreateContactPersonAsync(CreateContactPersonDto contactPersonDto);
         public Task<GetContactPersonDto> UpdateContactPersonAsync(long id, UpdateContactPersonDto contactPersonDto);
         public Task<bool> DeleteContactPersonAsync(long id);
-        public Task<GetContactPersonDto> GetContactPersonByCompanyIdAsync(long companyId);
+        public Task<GetContactPersonDto> GetContactPersonByCompanyInfoIdAsync(long companyInfoId);
     }
 }
