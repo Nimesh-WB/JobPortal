@@ -1314,7 +1314,7 @@ namespace JobPortal.API.Migrations
                     b.HasOne("JobPortal.Model.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -1325,7 +1325,7 @@ namespace JobPortal.API.Migrations
                     b.HasOne("JobPortal.Model.User", "User")
                         .WithMany("CompanyInfos")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -1336,7 +1336,7 @@ namespace JobPortal.API.Migrations
                     b.HasOne("JobPortal.Model.Company.CompanyInfo", "CompanyInfo")
                         .WithMany()
                         .HasForeignKey("CompanyInfoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("CompanyInfo");
@@ -1347,7 +1347,7 @@ namespace JobPortal.API.Migrations
                     b.HasOne("JobPortal.Model.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -1358,13 +1358,13 @@ namespace JobPortal.API.Migrations
                     b.HasOne("JobPortal.Model.Qualification", "Qualification")
                         .WithMany()
                         .HasForeignKey("QualificationId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("JobPortal.Model.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Qualification");
@@ -1377,13 +1377,13 @@ namespace JobPortal.API.Migrations
                     b.HasOne("JobPortal.Model.Language", "Language")
                         .WithMany("languageInfos")
                         .HasForeignKey("LanguageId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("JobPortal.Model.User", "User")
                         .WithMany("LanguageInfos")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Language");
@@ -1396,31 +1396,31 @@ namespace JobPortal.API.Migrations
                     b.HasOne("JobPortal.Model.City", "City")
                         .WithMany("LocationInfos")
                         .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("JobPortal.Model.Country", "Country")
                         .WithMany("LocationInfos")
                         .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("JobPortal.Model.State", "State")
                         .WithMany("LocationInfos")
                         .HasForeignKey("StateId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("JobPortal.Model.TrainLine", "TrainLine")
                         .WithMany("LocationInfos")
                         .HasForeignKey("TrainLineId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("JobPortal.Model.User", "User")
                         .WithMany("LocationInfos")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("City");
@@ -1439,13 +1439,13 @@ namespace JobPortal.API.Migrations
                     b.HasOne("JobPortal.Model.Gender", "Gender")
                         .WithMany()
                         .HasForeignKey("GenderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("JobPortal.Model.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Gender");
@@ -1458,7 +1458,7 @@ namespace JobPortal.API.Migrations
                     b.HasOne("JobPortal.Model.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -1469,13 +1469,13 @@ namespace JobPortal.API.Migrations
                     b.HasOne("JobPortal.Model.Skill", "Skill")
                         .WithMany("SkillInfos")
                         .HasForeignKey("SkillId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("JobPortal.Model.User", "User")
                         .WithMany("SkillInfos")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Skill");
@@ -1488,13 +1488,13 @@ namespace JobPortal.API.Migrations
                     b.HasOne("JobPortal.Model.UrlName", "UrlName")
                         .WithMany()
                         .HasForeignKey("UrlNameId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("JobPortal.Model.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("UrlName");
@@ -1507,25 +1507,25 @@ namespace JobPortal.API.Migrations
                     b.HasOne("JobPortal.Model.Designation", "Designation")
                         .WithMany()
                         .HasForeignKey("DesignationId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("JobPortal.Model.EmploymentType", "EmploymentType")
                         .WithMany()
                         .HasForeignKey("EmploymentTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("JobPortal.Model.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("JobPortal.Model.WorkType", "WorkType")
                         .WithMany()
                         .HasForeignKey("WorkTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Designation");
@@ -1542,7 +1542,7 @@ namespace JobPortal.API.Migrations
                     b.HasOne("JobPortal.Model.User", "User")
                         .WithMany("Publications")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("User");

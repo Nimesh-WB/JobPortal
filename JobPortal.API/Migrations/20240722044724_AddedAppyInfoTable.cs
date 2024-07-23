@@ -28,7 +28,7 @@ namespace JobPortal.API.Migrations
                 column: "JobPostId",
                 principalTable: "JobPosts",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Restrict);
         }
 
         /// <inheritdoc />

@@ -23,7 +23,7 @@ namespace JobPortal.Repository.Company
         {
             try
             {
-                var company = await _dbcontext.companies
+                var company = await _dbcontext.companyInfos
                     .Include(li => li.User)
                     .FirstOrDefaultAsync(li => li.UserId == UserId);
                 return company;
